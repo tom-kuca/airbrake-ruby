@@ -52,6 +52,10 @@ module Airbrake
     def build_https(uri)
       Net::HTTP.new(uri.host, uri.port, *proxy_params).tap do |https|
         https.use_ssl = uri.is_a?(URI::HTTPS)
+        https.verify_mode  = OpenSSL::SSL::VERIFY_PEER
+        https.ca_file      = @config.ca_cert_path
+        https.cert         = @config.cert
+        https.key          = @config.key
       end
     end
 

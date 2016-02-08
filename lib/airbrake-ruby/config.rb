@@ -38,6 +38,18 @@ module Airbrake
     #   exceptions should be sent
     attr_accessor :host
 
+    #
+     # Certificate authority which verifies server certificate
+     attr_accessor :ca_cert_path
+
+     #
+     # Private key for client's certificate
+     attr_accessor :key
+
+     #
+     # Client certificate sent to server with request
+     attr_accessor :cert
+
     ##
     # @return [String, Pathname] the working directory of your project
     attr_accessor :root_directory
