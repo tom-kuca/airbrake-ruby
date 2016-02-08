@@ -126,7 +126,7 @@ module Airbrake
 
     def set_endpoint(id, key, host)
       host = ('https://' << host) if host !~ %r{\Ahttps?://}
-      @endpoint = URI.join(host, "/api/v3/projects/#{id}/notices?key=#{key}")
+      @endpoint = URI.join(host, "/api/v3/projects/#{id}/notices?key=#{URI.encode key}")
     end
   end
 end
